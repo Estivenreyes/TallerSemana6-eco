@@ -13,17 +13,13 @@ import com.example.practica6.view.comminication.MessageListener;
 import com.example.practica6.view.comminication.TCP_Singleton;
 import com.example.practica6.view.model.Direction;
 import com.google.gson.Gson;
-import com.sokah.parcial1.R;
-import com.sokah.parcial1.communication.OnMessageListener;
-import com.sokah.parcial1.communication.TCP_Singleton;
-import com.sokah.parcial1.model.Colors;
-import com.sokah.parcial1.model.Direction;
+;
 
 import java.util.Random;
 
 public class GameActivity extends AppCompatActivity implements MessageListener {
 
-    private Button up,down,left,right,btncolor;
+    private Button botonArriba,botonAbajo,botonIzquierda,botonDerecha,cambiarColor;
     private TCP_Singleton tcp;
     private String message;
     private Direction dir;
@@ -40,23 +36,23 @@ public class GameActivity extends AppCompatActivity implements MessageListener {
         tcp= TCP_Singleton.getInstance();
         tcp.SetObserver(this);
         setContentView(R.layout.activity_game_controls);
-        btncolor=findViewById(R.id.buttonColor);
-        up= findViewById(R.id.buttonUp);
-        down = findViewById(R.id.buttonDown);
-        left = findViewById(R.id.buttonLeft);
-        right = findViewById(R.id.buttonRight);
+        cambiarColor=findViewById(R.id.cambiarColor);
+        botonArriba= findViewById(R.id.botonArriba);
+        botonAbajo = findViewById(R.id.botonAbajo);
+        botonIzquierda = findViewById(R.id.botonIzquierda);
+        botonDerecha = findViewById(R.id.botonDerecha);
         SetRandomColor();
         gson = new Gson();
 
-        btncolor.setOnClickListener(
+        cambiarColor.setOnClickListener(
                 (v)->{
 
                     //cambia color circulo
-                    btncolor.setBackgroundColor(Color.rgb(r,g,b));
-                    up.setBackgroundColor(Color.rgb(r,g,b));
-                    down.setBackgroundColor(Color.rgb(r,g,b));
-                    left.setBackgroundColor(Color.rgb(r,g,b));
-                    right.setBackgroundColor(Color.rgb(r,g,b));
+                    cambiarColor.setBackgroundColor(Color.rgb(r,g,b));
+                    botonArriba.setBackgroundColor(Color.rgb(r,g,b));
+                    botonAbajo.setBackgroundColor(Color.rgb(r,g,b));
+                    botonIzquierda.setBackgroundColor(Color.rgb(r,g,b));
+                    botonDerecha.setBackgroundColor(Color.rgb(r,g,b));
                     colors = new Color(r,g,b);
                     String message = gson.toJson(colors);
                     tcp.SendMessage(message);
@@ -67,7 +63,7 @@ public class GameActivity extends AppCompatActivity implements MessageListener {
 
 
         //Controles
-        up.setOnTouchListener(
+        botonArriba.setOnTouchListener(
                 (view,event)->{
 
                     switch (event.getAction()){
@@ -104,7 +100,7 @@ public class GameActivity extends AppCompatActivity implements MessageListener {
                     return true;
                 }
         );
-        down.setOnTouchListener(
+        botonAbajo.setOnTouchListener(
                 (view,event)->{
 
                     switch (event.getAction()){
@@ -142,7 +138,7 @@ public class GameActivity extends AppCompatActivity implements MessageListener {
                 }
 
         );
-        right.setOnTouchListener(
+        botonDerecha.setOnTouchListener(
                 (view,event)->{
                     switch (event.getAction()){
 
@@ -178,7 +174,7 @@ public class GameActivity extends AppCompatActivity implements MessageListener {
                 }
 
         );
-        left.setOnTouchListener(
+        botonIzquierda.setOnTouchListener(
                 (view,event)->{
                     switch (event.getAction()){
 
@@ -220,10 +216,6 @@ public class GameActivity extends AppCompatActivity implements MessageListener {
 
     }
 
-    @Override
-    public void OnMessage(String msg) {
-
-    }
 
     public void SetRandomColor(){
         Random random = new Random();
