@@ -17,7 +17,7 @@ import com.google.gson.Gson;
 
 import java.util.Random;
 
-public class GameActivity extends AppCompatActivity implements MessageListener {
+class GameActivity extends AppCompatActivity implements MessageListener {
 
     private Button botonArriba,botonAbajo,botonIzquierda,botonDerecha,cambiarColor;
     private TCP_Singleton tcp;
@@ -53,7 +53,7 @@ public class GameActivity extends AppCompatActivity implements MessageListener {
                     botonAbajo.setBackgroundColor(Color.rgb(r,g,b));
                     botonIzquierda.setBackgroundColor(Color.rgb(r,g,b));
                     botonDerecha.setBackgroundColor(Color.rgb(r,g,b));
-                    colors = new Color(r,g,b);
+                    colors = new Color();
                     String message = gson.toJson(colors);
                     tcp.SendMessage(message);
                     SetRandomColor();
