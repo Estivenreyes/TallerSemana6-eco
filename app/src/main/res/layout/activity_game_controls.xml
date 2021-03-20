@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.view.GameControls">
+
+    <Button
+        android:id="@+id/botonAbajo"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/botonDerecha"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="27dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/botonIzquierda"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/botonArriba"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="120dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/cambiarColor"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="58dp"
+        android:layout_marginBottom="141dp"
+        android:text="Cambiar"
+        app:layout_constraintBottom_toTopOf="@+id/botonAbajo"
+        app:layout_constraintEnd_toStartOf="@+id/botonDerecha"
+        app:layout_constraintStart_toEndOf="@+id/botonIzquierda"
+        app:layout_constraintTop_toBottomOf="@+id/botonArriba" />
+</androidx.constraintlayout.widget.ConstraintLayout>
